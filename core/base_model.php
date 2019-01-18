@@ -8,7 +8,7 @@ class BaseModel {
 	
 	/**
 	 * Creates new model instance
-	 * param $db: database instance
+	 * param $db: database.php instance
 	 * param $id: record's id, null id usually means new record
 	 * param $fields: eager load given fields, use '*' for all fields 
 	 */
@@ -26,7 +26,7 @@ class BaseModel {
 	}
 	
 	/**
-	 * Retrieves given field from memory or database
+	 * Retrieves given field from memory or database.php
 	 */
 	protected function getField($field){
 		// Retrieve from memory if exists
@@ -47,7 +47,7 @@ class BaseModel {
 	}
 	
 	/**
-	 * Retrieve multiple fields from database
+	 * Retrieve multiple fields from database.php
 	 * Use '*' for all fields
 	 */
 	protected function getFields($fields = array()){
@@ -84,7 +84,7 @@ class BaseModel {
 	}
 	
 	/**
-	 * Escapes values for inserting them into database
+	 * Escapes values for inserting them into database.php
 	 * Can also handle array of value
 	 */
 	public static function escapeValue($value){
@@ -137,7 +137,7 @@ class BaseModel {
 		foreach($res as $result){
 			// New instance
 			$newClass = new $className($db);
-			// Set all fields retrieved from database
+			// Set all fields retrieved from database.php
 			foreach ($result as $field => $value){
 				if($field != 'id')$newClass->setField($field, $value);
 				else $newClass->setId($value);
@@ -252,7 +252,7 @@ class BaseModel {
 	}
 	
 	/**
-	 * Delete current record from database
+	 * Delete current record from database.php
 	 */
 	public function delete(){
 		// Delete only if we know the id

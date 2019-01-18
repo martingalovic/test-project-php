@@ -13,7 +13,7 @@ class Config {
 		// Save current directory path
 		$this->directory = dirname(__FILE__);
 		
-		// Read user's database config
+		// Read user's database.php config
 		require $this->directory.'/../config/database.php';
 		$this->database = $database;
 	}

@@ -1,14 +1,23 @@
 <?php
 
+// Defines APP_ROOT
+define('APP_ROOT', dirname(__FILE__).'/../');
+
+// Require composer packages
+require APP_ROOT . '/vendor/autoload.php';
+
 // Load BaseModel and all models from models directory
-require dirname(__FILE__).'/base_model.php';
-foreach (glob(dirname(__FILE__).'/../models/*.php') as $filename){
+require APP_ROOT.'/core/base_model.php';
+foreach (glob(APP_ROOT.'/models/*.php') as $filename){
 	require $filename;
 }
 
+// Load Helpers
+require APP_ROOT.'/helpers/helpers.php';
+
 /**
  * App
- * provides interface for database manipulation, accessing config and rendering views
+ * provides interface for database.php manipulation, accessing config and rendering views
  */
 class App {
 	
@@ -23,7 +32,7 @@ class App {
 		// Load configuration options
 		$this->config = require $this->directory.'/config.php';
 			
-		// Load database instance and tell it to connect with given config
+		// Load database.php instance and tell it to connect with given config
 		$this->db = require $this->directory.'/database.php';
 		$this->db->connect($this->config->database);
 	}	

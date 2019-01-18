@@ -2,7 +2,7 @@
 
 /**
  * Database
- * provides interface for database manipulation
+ * provides interface for database.php manipulation
  */
 class Database {
 	
@@ -11,7 +11,7 @@ class Database {
 	private $config;
 	
 	/**
-	 * Connects to database with given config
+	 * Connects to database.php with given config
 	 */
 	public function connect($config){
 		$this->config = $config;	
